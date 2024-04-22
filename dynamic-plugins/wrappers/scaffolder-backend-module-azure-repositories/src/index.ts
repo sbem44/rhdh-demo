@@ -1,0 +1,1 @@
+export { scaffolderBackendModuleAzurePipelines as default } from './plugin';
