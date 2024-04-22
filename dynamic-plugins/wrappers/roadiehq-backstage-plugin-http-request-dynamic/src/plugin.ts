@@ -19,6 +19,6 @@ export const scaffolderBackendModuleHttpRequest = createBackendModule({
           createHttpBackstageAction({discovery: discovery})
         );
       },
-    });
+    }); 
   },
 });
