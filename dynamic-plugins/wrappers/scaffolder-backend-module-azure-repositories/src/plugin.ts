@@ -6,7 +6,7 @@ import {
 import {  ScmIntegrations } from "@backstage/integration";
 
 import { scaffolderActionsExtensionPoint } from '@backstage/plugin-scaffolder-node/alpha';
-import {pushAzureRepoAction } from "@parfuemerie-douglas/scaffolder-backend-module-azure-repositories";
+import {pushAzureRepoAction, cloneAzureRepoAction } from "@parfuemerie-douglas/scaffolder-backend-module-azure-repositories";
 
 export const scaffolderBackendModuleAzurePipelines = createBackendModule({
   moduleId: 'scaffolder-backend-module-azure-repositories',
@@ -19,7 +19,8 @@ export const scaffolderBackendModuleAzurePipelines = createBackendModule({
       },
       async init({ scaffolder, rootConfig }) {
         scaffolder.addActions(
-          pushAzureRepoAction({integrations: ScmIntegrations.fromConfig(rootConfig), config:rootConfig})
+          pushAzureRepoAction({integrations: ScmIntegrations.fromConfig(rootConfig), config:rootConfig}),
+          cloneAzureRepoAction({integrations: ScmIntegrations.fromConfig(rootConfig)})
         );
       },
     });
